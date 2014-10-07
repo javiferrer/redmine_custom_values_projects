@@ -11,11 +11,8 @@ module RedmineCustomValuesProjects
       end
     end
   
-    module InstanceMethods
-      #see <redmine_src>/app/models/custom_value.rb for overwritten methods
-  
+    module InstanceMethods 
       def possible_custom_value_options_with_custom_values_per_project(custom_value)
-        Rails.logger.info "metodo reail"
         options = possible_custom_values_options(custom_value)
         missing = [custom_value.value].flatten.reject(&:blank?) - options
         if missing.any?
@@ -65,8 +62,7 @@ module RedmineCustomValuesProjects
           custom_values = CustomFieldProjectValues.where(:project_id => project.id, :custom_field_id => custom_field.id).first
           custom_values.nil? ? custom_field.possible_values : custom_values.values  
         end
-      end
-      
+      end     
     end
   end
 end
