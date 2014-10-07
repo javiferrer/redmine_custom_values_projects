@@ -1,0 +1,22 @@
+<h2>PossibleValueProjectsController#manage</h2>
+
+<%= form_tag(manage_possible_values_path(@project, @custom_field), :method => :post) do %>
+  <table class="list">
+    <thead>
+      <tr>
+        <th><%= l(:label_custom_field_value)%></th>
+        <th><%= l(:label_custom_field_value_available)%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @custom_field.possible_values.each do |v| %>
+        <tr>
+          <td><%=v%></td>
+          <td><%= check_box_tag "values[]", v, @possible_values.include?(v)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <%= submit_tag l(:button_save) %>
+<% end %>
