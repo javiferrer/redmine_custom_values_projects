@@ -12,7 +12,7 @@ Features
 Compatibility
 -------------
 
-Develoèd and tested on redmine 2.5.x
+Developd and tested on redmine 2.5.x
 
 Installation
 ------------
