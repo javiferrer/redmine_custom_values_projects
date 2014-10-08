@@ -14,6 +14,8 @@ Compatibility
 
 Developed and tested on redmine 2.5.x
 
+(Go to https://github.com/javiferrer/redmine_custom_values_projects/tree/1.0.0 if you are using redmine 2.3 or 2.4)
+
 Installation
 ------------
 
