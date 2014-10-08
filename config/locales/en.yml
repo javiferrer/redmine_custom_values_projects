@@ -5,3 +5,4 @@ en:
   label_edit_personalization: "Edit customization"
   label_delete_personalization: "Delete customization"
   editing_custom_values_for_custom_field: "Select values for %{custom_field}"
+  error_values_not_available: "%{values} values were selected but are not longer available"

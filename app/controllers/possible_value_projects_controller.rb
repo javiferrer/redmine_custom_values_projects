@@ -32,6 +32,10 @@ class PossibleValueProjectsController < ApplicationController
     end
     
     @possible_values = @custom_field_project_values.values
+    not_present_values = @possible_values - @custom_field.possible_values
+    if not_present_values.any?
+      flash[:error] = l(:error_values_not_available, :values => not_present_values.join(', '))
+    end    
   end
   
   def destroy
