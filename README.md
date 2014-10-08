@@ -12,7 +12,7 @@ Features
 Compatibility
 -------------
 
-Developd and tested on redmine 2.5.x
+Developed and tested on redmine 2.5.x
 
 Installation
 ------------
@@ -30,7 +30,6 @@ $ rake redmine:plugins:migrate RAILS_ENV=production
 TODO
 ----
 
-* Redmine < 2.5 compatibility
 * Extend functionality to other models (projects, versions, etc...)
 
 Licence
