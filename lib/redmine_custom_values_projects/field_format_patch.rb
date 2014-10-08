@@ -1,4 +1,20 @@
-require_dependency 'custom_field'
+# "Custom values per project" redmine plugin
+#
+# Copyright (C) 2014   Francisco Javier Pérez Ferrer <contacto@javiferrer.es>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 module RedmineCustomValuesProjects
   module FieldFormatPatch
@@ -59,12 +75,16 @@ module RedmineCustomValuesProjects
         if project.nil?
           custom_field.possible_values
         else
-          custom_values = CustomFieldProjectValues.where(:project_id => project.id, :custom_field_id => custom_field.id).first
-          custom_values.nil? ? custom_field.possible_values : custom_values.values  
+          custom_values = CustomFieldProjectValue.where(:project_id => project.id, :custom_field_id => custom_field.id).first
+          custom_values.nil? ? custom_field.possible_values : custom_values.valid_values  
         end
       end     
     end
   end
 end
 
-Redmine::FieldFormat::ListFormat.send(:include, RedmineCustomValuesProjects::FieldFormatPatch)
+Rails.configuration.to_prepare do
+  unless Redmine::FieldFormat::ListFormat.included_modules.include?(RedmineCustomValuesProjects::FieldFormatPatch)
+    Redmine::FieldFormat::ListFormat.send(:include, RedmineCustomValuesProjects::FieldFormatPatch)
+  end
+end

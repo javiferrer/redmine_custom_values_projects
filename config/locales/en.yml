@@ -1,3 +1,7 @@
 # English strings go here for Rails i18n
 en:
   possible_value_project: "Custom values"
+  label_create_personalization: "New customization"
+  label_edit_personalization: "Edit customization"
+  label_delete_personalization: "Delete customization"
+  editing_custom_values_for_custom_field: "Select values for %{custom_field}"

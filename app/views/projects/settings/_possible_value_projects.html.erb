@@ -2,7 +2,8 @@
   <thead>
     <tr>
       <th><%=l(:label_custom_field)%></th>
-      <th><%=l(:label_possible_value_customized)%></th>
+      <th></th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -12,8 +13,16 @@
         <% if ['list', 'check_box'].include?(cf.field_format)%>
         <tr class="<%= cycle 'odd', 'even' %>">
           <td><%=cf.name%></td>
-          <td>activo</td>
-          <td><%= link_to l(:label_edit), manage_possible_values_path(@project, cf)%></td>
+          <td><%= link_to(l(:label_create_personalization),
+                    manage_possible_values_path(@project, cf),
+                    :class => 'icon icon-add') unless @project.custom_fields_customized.include?(cf) %></td>
+          <td><%= link_to(l(:label_edit_personalization),
+                    manage_possible_values_path(@project, cf),
+                    :class => 'icon icon-edit') if @project.custom_fields_customized.include?(cf) %></td>
+          <td><%= link_to(l(:label_delete_personalization),
+                    delete_possible_values_path(@project, cf),
+                    :class => 'icon icon-del',
+                    :method => :delete) if @project.custom_fields_customized.include?(cf) %></td>                    
           </tr>
         <% end %>
       

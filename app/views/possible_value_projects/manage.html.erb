@@ -1,11 +1,11 @@
-<h2>PossibleValueProjectsController#manage</h2>
+<h2><%=l(:editing_custom_values_for_custom_field, :custom_field => @custom_field.name) %></h2>
 
 <%= form_tag(manage_possible_values_path(@project, @custom_field), :method => :post) do %>
   <table class="list">
     <thead>
       <tr>
-        <th><%= l(:label_custom_field_value)%></th>
-        <th><%= l(:label_custom_field_value_available)%></th>
+        <th><%= l(:field_possible_values)%></th>
+        <th><%= l(:field_active)%></th>
       </tr>
     </thead>
     <tbody>
