@@ -18,19 +18,20 @@
 
 require 'redmine'
 
-require 'redmine_custom_values_projects/field_format_patch'
-require 'redmine_custom_values_projects/projects_helper_patch'
+
+require 'redmine_custom_values_projects/custom_field_patch'
 require 'redmine_custom_values_projects/project_patch'
+require 'redmine_custom_values_projects/projects_helper_patch'
 
 Redmine::Plugin.register :redmine_custom_values_projects do
   name 'Atis Custom Fields plugin'
-  author 'Francisco Javier Pérez Ferrer'
+  author 'Francisco Javier Perez Ferrer'
   description 'This plugin allows to limit the values of custom fields (lists and checkboxes) per project'
   version '0.0.1'
   url 'https://github.com/javiferrer/redmine_custom_values_projects'
   author_url 'http://twitter.com/javiferrer'
   
-  requires_redmine :version_or_higher => '2.5.0'
+  requires_redmine :version => '2.3'..'2.4'
   
   permission :manage_possible_values, {:possible_value_projects => [:manage, :destroy]}, :require => :member
 end
