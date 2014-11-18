@@ -1,3 +1,5 @@
+# encoding: utf-8
+#
 # "Custom values per project" redmine plugin
 #
 # Copyright (C) 2014   Francisco Javier Pérez Ferrer <contacto@javiferrer.es>
