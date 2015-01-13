@@ -17,7 +17,7 @@
               <%= link_to(l(:button_edit),
                     manage_possible_values_path(@project, cf),
                     :class => 'icon icon-edit') if @project.custom_fields_customized.include?(cf) %>
-              <%= link_to(l(:button_clear),
+              <%= link_to(l(:button_reset),
                     delete_possible_values_path(@project, cf),
                     :class => 'icon icon-del',
                     :method => :delete) if @project.custom_fields_customized.include?(cf) %></td>
