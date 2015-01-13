@@ -1,0 +1,5 @@
+# Czech strings go here for Rails i18n
+cs:
+  label_create_personalization: "Nové nastavení"
+  editing_custom_values_for_custom_field: "Vyberte hodnoty pro %{custom_field}"
+  error_values_not_available: "%{values} hodnoty byly vybrány, ale již nejsou k dispozici"
