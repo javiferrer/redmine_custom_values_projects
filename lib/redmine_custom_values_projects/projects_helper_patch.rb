@@ -32,7 +32,7 @@ module RedmineCustomValuesProjects
       def project_settings_tabs_with_custom_fields_project
         tabs = project_settings_tabs_without_custom_fields_project
         tabs << {:name => 'possible_value_projects', :action => :manage_possible_values, :partial => 'projects/settings/possible_value_projects',
-                 :label => :possible_value_project} if User.current.allowed_to?(:manage_possible_values, @project)
+                 :label => :label_custom_field_plural} if User.current.allowed_to?(:manage_possible_values, @project)
         tabs
       end
     end
