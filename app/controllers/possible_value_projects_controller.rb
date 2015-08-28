@@ -20,24 +20,24 @@ class PossibleValueProjectsController < ApplicationController
   unloadable
 
   before_filter :find_project, :authorize, :load_custom_field_project_values
-  
+
   menu_item :settings
 
-  def manage        
-    if request.post?     
+  def manage
+    if request.post?
       @custom_field_project_values.values = params[:values]
       @custom_field_project_values.save
       flash[:notice] = l(:notice_successful_update)
       redirect_to settings_project_path(@project, :tab => 'possible_value_projects')
     end
-    
+
     @possible_values = @custom_field_project_values.values
     not_present_values = @possible_values - @custom_field.possible_values
     if not_present_values.any?
       flash[:error] = l(:error_values_not_available, :values => not_present_values.join(', '))
-    end    
+    end
   end
-  
+
   def destroy
     begin
       @custom_field_project_values.destroy
@@ -45,12 +45,12 @@ class PossibleValueProjectsController < ApplicationController
     rescue
       flash[:error] = l(:error_can_not_delete_field_project_values)
     end
-    redirect_to settings_project_path(:tab => 'possible_value_projects')    
+    redirect_to settings_project_path(:tab => 'possible_value_projects')
   end
-  
+
   private
   def load_custom_field_project_values
     @custom_field = CustomField.find(params[:custom_field_id])
-    @custom_field_project_values = CustomFieldProjectValue.find_or_initialize_by_project_id_and_custom_field_id(@project.id, @custom_field.id)
+    @custom_field_project_values = CustomFieldProjectValue.where(project_id: @project.id, custom_field_id: @custom_field.id).first_or_initialize
   end
 end
