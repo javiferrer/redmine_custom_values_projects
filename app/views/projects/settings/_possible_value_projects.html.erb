@@ -6,7 +6,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @project.issue_custom_fields.each do |cf| %>
+    <% @project.all_issue_custom_fields.each do |cf| %>
       
         <% if ['list', 'check_box'].include?(cf.field_format)%>
         <tr class="<%= cycle 'odd', 'even' %>">
