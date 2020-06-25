@@ -19,7 +19,7 @@
 class PossibleValueProjectsController < ApplicationController
   unloadable
 
-  before_filter :find_project, :authorize, :load_custom_field_project_values
+  before_action :find_project, :authorize, :load_custom_field_project_values
 
   menu_item :settings
 
