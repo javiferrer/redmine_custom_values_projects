@@ -22,8 +22,8 @@ module RedmineCustomValuesProjects
       base.send(:include, InstanceMethods)
       base.class_eval do
         unloadable # Send unloadable so it will not be unloaded in development
-        alias_method_chain :possible_custom_value_options, :custom_values_per_project
-        alias_method_chain :possible_values_options, :custom_values_per_project
+        alias_method :possible_custom_value_options, :possible_custom_value_options_with_custom_values_per_project
+        alias_method :possible_values_options, :possible_values_options_with_custom_values_per_project
       end
     end
   

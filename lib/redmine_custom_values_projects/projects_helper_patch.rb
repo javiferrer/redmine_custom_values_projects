@@ -24,7 +24,8 @@ module RedmineCustomValuesProjects
       base.send(:include, InstanceMethods)
       base.class_eval do
         unloadable
-        alias_method_chain :project_settings_tabs, :custom_fields_project
+        alias_method :project_settings_tabs_without_custom_fields_project, :project_settings_tabs
+        alias_method :project_settings_tabs, :project_settings_tabs_with_custom_fields_project
       end
     end
 
