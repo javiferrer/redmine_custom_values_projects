@@ -23,7 +23,6 @@ module RedmineCustomValuesProjects
     def self.included(base)
       base.send(:include, InstanceMethods)
       base.class_eval do
-        unloadable
         has_many :custom_field_project_values
       end
     end
@@ -32,7 +31,7 @@ module RedmineCustomValuesProjects
   module InstanceMethods
     
     def custom_fields_customized
-      custom_field_project_values.collect {|c| c.custom_field}
+      custom_field_project_values.map(&:custom_field)
     end
     
   end

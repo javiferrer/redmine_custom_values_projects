@@ -17,8 +17,6 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 class PossibleValueProjectsController < ApplicationController
-  unloadable
-
   before_action :find_project, :authorize, :load_custom_field_project_values
 
   menu_item :settings
