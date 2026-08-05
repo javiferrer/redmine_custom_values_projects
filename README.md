@@ -1,40 +1,11 @@
-redmine_custom_values_projects
-==============================
+# ⚠️ This Repository Has Been Archived
 
-This plugin allows users to limits the values of custom fiels (lists and checkbox) per project (only issues)
+This repository is no longer maintained.
 
-Features
---------
+Development has moved to:
 
-* Limit the values of custom fields per project (only issues)
-* Works in the edit form, contextual menu and bulk edit.
+👉 https://github.com/redmineservices/redmine_custom_values_projects
 
-Compatibility
--------------
+Please use the new repository for the latest updates, bug fixes, and future development.
 
-Developed and tested on redmine 4.x
-
-(Go to previous versions if you are using redmine 2.x or 3.x)
-
-Installation
-------------
-
-* Clone https://github.com/javiferrer/redmine_custom_values_projects or download zip into  **redmine_dir/plugins/** folder
-```
-$ git clone https://github.com/javiferrer/redmine_custom_values_projects.git
-```
-* From redmine root directory, run: 
-```
-$ rake redmine:plugins:migrate RAILS_ENV=production
-```
-* Restart redmine
-
-TODO
-----
-
-* Extend functionality to other models (projects, versions, etc...)
-
-Licence
--------
-
-GNU General Public License Version 2
+Thank you for your support!
